@@ -1,0 +1,45 @@
+const getButter = () => {
+  return new Promise((resolve, reject) => {
+    // Simulate getting butter
+    setTimeout(() => {
+      console.log("Husband got butter");
+      resolve("Butter");
+    }, 2000);
+  });
+};
+
+const getColdDrinks = () => {
+  return new Promise((resolve, reject) => {
+    // Simulate getting cold drinks
+    setTimeout(() => {
+      console.log("Got cold drinks");
+      resolve("Cold Drinks");
+    }, 1000);
+  });
+};
+
+// Using promises
+getButter()
+  .then((butter) => getColdDrinks())
+  .then((drinks) => console.log(`Husband got ${drinks} after getting butter.`));
+
+// Using async/await
+const getDrinksAfterButter = async () => {
+  const butter = await getButter();
+  const drinks = await getColdDrinks();
+  console.log(`Husband got ${drinks} after getting butter.`);
+};
+
+getDrinksAfterButter();
+
+//To handle Promise.all with async/await
+
+// Using async/await
+const getDrinksAfterButter = async () => {
+  const butter = await getButter();
+  const drinks = await getColdDrinks();
+  console.log(`Husband got ${drinks} after getting butter.`);
+};
+
+getDrinksAfterButter();
+
